@@ -11,6 +11,7 @@ class CartController < ApplicationController
   def destroy
     trip = Trip.find(params[:trip_id])
     session[:cart] = @cart.remove_trip(trip.id)
+    flash[:notice] = "Successfully removed #{link_to(trip.title, trip_path(trip.id)} from your cart"
     trip.destroy
     redirect_to cart_path
   end
