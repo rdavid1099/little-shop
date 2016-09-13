@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912235325) do
+ActiveRecord::Schema.define(version: 20160913002654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_trips", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "trip_id",     null: false
+  end
+
+  add_index "categories_trips", ["category_id", "trip_id"], name: "index_categories_trips_on_category_id_and_trip_id", using: :btree
+  add_index "categories_trips", ["trip_id", "category_id"], name: "index_categories_trips_on_trip_id_and_category_id", using: :btree
 
   create_table "trips", force: :cascade do |t|
     t.string   "title"
