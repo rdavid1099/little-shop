@@ -101,3 +101,7 @@ end
 def make_trip(location)
   Trip.create(title: "#{location}", description: "description", price: '199.99', image: 'image.jpg')
 end
+
+def create_category(title)
+  Category.create(title: "#{title}")
+end
