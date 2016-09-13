@@ -10,7 +10,10 @@ RSpec.configure do |config|
 end
 
 def make_trip(location)
-  Trip.create(title: location.to_s, description: 'description', price: '199.99', image: 'image.jpg')
+  Trip.create(title: location.to_s,
+              description: 'description', 
+              price: '199.99',
+              image: 'image.jpg')
 end
 
 def create_category(title)
