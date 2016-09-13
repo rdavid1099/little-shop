@@ -1,0 +1,9 @@
+<h1>Shopping Cart</h1>
+<h2>Items in Cart: <%= @cart.count %> </h2>
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= @cart.num_of_trip_in_cart(trip.id) %> - <%= trip.title %> - $<%= @cart.total_price_of_trip(trip.id) %></li>
+  <% end %>
+</ul>
+
+Total: $<%= @cart.total_price %>
