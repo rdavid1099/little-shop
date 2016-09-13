@@ -25,8 +25,7 @@ class Cart
 
   def total_price
     @cart.reduce(0) do |result, (trip_id, quantity)|
-      result += Trip.find(trip_id).price.to_f * quantity
+      result + Trip.find(trip_id).price.to_f * quantity
     end
   end
-
 end
