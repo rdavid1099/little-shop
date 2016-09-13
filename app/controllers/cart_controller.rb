@@ -1,7 +1,7 @@
-class CartsController < ApplicationController
+class CartController < ApplicationController
   def create
     session[:cart] = @cart.update_cart(params[:trip_id])
-    redirect_to carts_path
+    redirect_to cart_path
   end
 
   def index
