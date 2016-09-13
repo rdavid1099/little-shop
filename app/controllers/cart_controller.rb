@@ -7,4 +7,11 @@ class CartController < ApplicationController
   def index
     @trips = @cart.cart.keys.map { |id| Trip.find(id) }
   end
+
+  def destroy
+    trip = Trip.find(params[:trip_id])
+    session[:cart] = @cart.remove_trip(trip.id)
+    trip.destroy
+    redirect_to cart_path
+  end
 end
