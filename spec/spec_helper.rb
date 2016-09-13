@@ -11,7 +11,7 @@ end
 
 def make_trip(location)
   Trip.create(title: location.to_s,
-              description: 'description', 
+              description: 'description',
               price: '199.99',
               image: 'image.jpg')
 end
