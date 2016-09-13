@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Trip, type: :model do
   it 'can be created with proper params' do
     trip = Trip.new(title: 'title', description: 'description', price: 'price', image: 'image')

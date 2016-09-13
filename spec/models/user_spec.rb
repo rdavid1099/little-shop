@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe User, type: :model do
   it 'can be created with proper params' do
     user = User.new(username: 'user', password: 'password')
