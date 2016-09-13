@@ -8,7 +8,8 @@ RSpec.feature 'Visitor can' do
 
     click_on 'Remove'
     expect(page).to have_content('Shopping Cart')
-    within('div#flash_remove') do
+    save_and_open_page
+    within('div#alert alert-success') do
       expect(page).to have_content("Successfully removed #{trip.title} from your cart")
       expect(page).to have_link(trip.title, href: trip_path)
       expect(div[:style]).to match(/color: green/)
