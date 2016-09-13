@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
   it "can be created with proper params" do
     user = User.new(username: "user", password: "password")
 
-    expect(user).to eq(user)
+    expect(user).to be_valid
   end
 
   context "validations" do

@@ -97,3 +97,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def make_trip(location)
+  Trip.create(title: "#{location}", description: "description", price: '199.99', image: 'image.jpg')
+end
