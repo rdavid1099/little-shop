@@ -1,6 +1,9 @@
 RSpec.describe Trip, type: :model do
   it 'can be created with proper params' do
-    trip = Trip.new(title: 'title', description: 'description', price: 'price', image: 'image')
+    trip = Trip.new(title: 'title',
+                    description: 'description',
+                    price: 'price',
+                    image: 'image')
 
     expect(trip).to be_valid
   end

@@ -2,13 +2,24 @@ require 'rails_helper'
 
 RSpec.feature 'Visitor can browse' do
   scenario 'trips by Category' do
-
     category_1 = create_category('Beaches')
     category_2 = create_category('Mountains')
-    category_1.trips.create(title: 'Bermuda', description: 'description', price: '199.99', image: 'image.jpg')
-    category_1.trips.create(title: 'Cabo', description: 'description', price: '199.99', image: 'image.jpg')
-    category_2.trips.create(title: 'Vail', description: 'description', price: '199.99', image: 'image.jpg')
-    category_2.trips.create(title: 'Whistler', description: 'description', price: '199.99', image: 'image.jpg')
+    category_1.trips.create(title: 'Bermuda',
+                            description: 'description',
+                            price: '199.99',
+                            image: 'image.jpg')
+    category_1.trips.create(title: 'Cabo',
+                            description: 'description',
+                            price: '199.99',
+                            image: 'image.jpg')
+    category_2.trips.create(title: 'Vail',
+                            description: 'description',
+                            price: '199.99',
+                            image: 'image.jpg')
+    category_2.trips.create(title: 'Whistler',
+                            description: 'description',
+                            price: '199.99',
+                            image: 'image.jpg')
 
     visit category_path(category_1.title)
 

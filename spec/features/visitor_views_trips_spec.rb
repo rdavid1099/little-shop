@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.feature 'Visitor can view' do
   scenario 'trips on the trips index' do
     make_trip('Bermuda')

@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.feature 'Visitor can view trip page and add item to cart' do
   context 'add one item to cart' do
     scenario 'trip page shows info about trip and allows visitor to buy trip' do
