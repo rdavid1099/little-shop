@@ -1,24 +1,33 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor can view trip page and add item to cart" do
-  scenario "trip page shows info about trip and allows visitor to buy trip" do
-    skip
-    make_trip("Bermuda")
-    trip = Trip.last
-    visit trip_path(trip)
-    click_on "Add to Cart"
+  context "add one item to cart" do
+    scenario "trip page shows info about trip and allows visitor to buy trip" do
+      make_trip("Bermuda")
+      trip = Trip.last
+      visit trip_path(trip)
+      click_on "Add to Cart"
 
-    expect(page).to have_content("Cart Items")
-    expect(page).to have_content("Bermuda - $199.99")
-    expect(page).to have_content("Total: $199.99")
+      expect(page).to have_content("Cart Items")
+      expect(page).to have_content("Cart: 1")
+      expect(page).to have_content("1 - Bermuda - $199.99")
+      expect(page).to have_content("Total: $199.99")
+    end
+  end
+
+  context "add two items to cart" do
+    scenario "trip page shows info about trip and allows visitor to buy trip" do
+      make_trip("Bermuda")
+      trip = Trip.last
+      visit trip_path(trip)
+      click_on "Add to Cart"
+      visit trip_path(trip)
+      click_on "Add to Cart"
+
+      expect(page).to have_content("Cart Items")
+      expect(page).to have_content("Cart: 2")
+      expect(page).to have_content("2 - Bermuda - $399.98")
+      expect(page).to have_content("Total: $399.98")
+    end
   end
 end
-
-# As a visitor
-# When I visit any page with an item on it
-# I should see a link or button for "Add to Cart"
-# When I click "Add to cart" for that item
-# And I click a link or button to view cart
-# And my current path should be "/cart"
-# And I should see a small image, title, description and price for the item I just added
-# And there should be a "total" price for the cart that should be the sum of all items in the cart
