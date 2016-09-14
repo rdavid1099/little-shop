@@ -1,0 +1,7 @@
+<h1>Edit Quantity for <%= @trip.title %></h1>
+
+<%= form_tag cart_path(trip_id: @trip.id), method: :put do %>
+  <%= label_tag(:quantity, "Quantity") %>
+  <%= number_field_tag :quantity, nil, min: 1, placeholder: @cart.num_of_trip_in_cart(@trip.id) %>
+  <%= submit_tag "Update Quantity" %>
+<% end %>
