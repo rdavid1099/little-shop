@@ -1,0 +1,11 @@
+<h1>Shopping Cart</h1>
+<h2>Items in Cart: <%= @cart.count %> </h2>
+<div class="cart-contents">
+  <ul>
+    <% @trips.each do |trip| %>
+      <li><%= @cart.num_of_trip_in_cart(trip.id) %> - <%= trip.title %> - $<%= @cart.total_price_of_trip(trip.id) %> <%= link_to "Remove", cart_path(trip_id: trip.id), method: :delete %></li>
+    <% end %>
+  </ul>
+</div>
+
+Total: $<%= @cart.total_price %>
