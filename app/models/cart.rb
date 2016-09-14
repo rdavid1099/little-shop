@@ -42,4 +42,8 @@ class Cart
       result + Trip.find(trip_id).price.to_f * quantity
     end
   end
+
+  def empty?
+    @cart.count.zero?
+  end
 end
