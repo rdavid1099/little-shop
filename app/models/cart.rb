@@ -11,6 +11,15 @@ class Cart
     @cart
   end
 
+  def change_quantity(trip_id, quantity)
+    @cart[trip_id.to_s] = quantity.to_i
+    @cart
+  end
+
+  def valid_number?(quantity)
+    (1..100).include?(quantity)
+  end
+
   def remove_trip(trip_id)
     @cart.delete(trip_id.to_s)
     @cart
