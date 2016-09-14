@@ -1,0 +1,9 @@
+<h1>Login to Buy Your Amazing Journey</h1>
+<%= form_for(:sessions) do |f| %>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br><br>
+  <%= f.submit 'Log In' %>
+<% end %>
+ | <%= link_to 'Create Account', new_user_path %>

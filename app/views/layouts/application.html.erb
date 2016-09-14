@@ -7,9 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |type, message| %>
-  <%= content_tag :div, message.html_safe, class: "alert alert-success" %>
-<% end %>
+  <div class="navbar">
+    <%= display_navbar.html_safe %>
+  </div>
+  <% flash.each do |type, message| %>
+    <%= content_tag :div, message.html_safe, class: "alert alert-success" %>
+  <% end %>
 
 <%= yield %>
 
