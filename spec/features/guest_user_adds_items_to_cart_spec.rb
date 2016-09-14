@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "guest user adds items to cart" do
-  scenario "guest user adds items to cart and logins in to checkout" do
+RSpec.feature 'guest user adds items to cart' do
+  scenario 'guest user adds items to cart and logins in to checkout' do
     make_trip('Bermuda')
     make_trip('Basement')
     trip1 = Trip.first
