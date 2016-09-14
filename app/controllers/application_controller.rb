@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
   def set_cart
     @cart = Cart.new(session[:cart])
   end
+
+  def trip_successfully_removed(trip)
+    "Successfully removed #{view_context.link_to trip.title, trip_path(trip.id)} from your cart"
+  end
 end

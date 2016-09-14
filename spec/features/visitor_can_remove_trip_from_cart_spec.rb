@@ -8,17 +8,14 @@ RSpec.feature 'Visitor can' do
 
     click_on 'Remove'
     expect(page).to have_content('Shopping Cart')
-    save_and_open_page
-    within('div#alert alert-success') do
-      expect(page).to have_content("Successfully removed #{trip.title} from your cart")
-      expect(page).to have_link(trip.title, href: trip_path)
-      expect(div[:style]).to match(/color: green/)
+
+    within('div.cart-contents') do
+      expect(page).to_not have_content("#{trip.title}")
     end
-    # it { should have_css('div.flash_remove', :color => green) }
-    expect(page).to_not have_content("#{trip.title}")
-# And I should see a message styled in green
-# And the message should say "Successfully removed SOME_ITEM from your cart."
-# And the title "SOME_ITEM" should be a link to that item in case the user wants to add it back
-# And I should not see the item listed in cart
+
+    within('div.alert') do
+      expect(page).to have_content("Successfully removed #{trip.title} from your cart")
+      expect(page).to have_link(trip.title, href: trip_path(trip))
+    end
   end
 end
