@@ -7,6 +7,4 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: EMAIL_REGEX
-
-  enum role: ["default", "vip", "admin"]
 end
