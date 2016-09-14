@@ -4,16 +4,14 @@
   <ul>
     <% @trips.each do |trip| %>
       <li><%= @cart.num_of_trip_in_cart(trip.id) %>
-
-
         - <%= trip.title %> -
-
         $<%= @cart.total_price_of_trip(trip.id) %>
-
         <%= link_to "Edit Quantity", cart_edit_path(trip_id: trip.id) %>
         <%= link_to "Remove", cart_path(trip_id: trip.id), method: :delete %></li>
     <% end %>
   </ul>
+  Total: $<%= @cart.total_price %>
 </div>
-
-Total: $<%= @cart.total_price %>
+<div class="checkout">
+  <%= display_checkout %>
+</div>
