@@ -1,4 +1,4 @@
-RSpec.feature 'Visitor can' do
+RSpec.feature 'Visitor can remove trips from cart' do
   scenario 'remove trip from cart' do
     trip = make_trip('bermuda')
     visit trip_path(trip)

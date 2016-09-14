@@ -9,6 +9,13 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
+def make_user(name)
+  User.create(name: name.to_s,
+              email: 'test@test.com',
+              username: "#{name}_test",
+              password: 'testing')
+end
+
 def make_trip(location)
   Trip.create(title: location.to_s,
               description: 'description',
