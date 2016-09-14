@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/cart', to: 'cart#index'
   post '/cart', to: 'cart#create'
   delete '/cart', to: 'cart#destroy'
-  resources :carts, only: [:create, :index]
+  put '/cart', to: 'cart#update'
+  get '/cart/edit', to: 'cart#edit'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
