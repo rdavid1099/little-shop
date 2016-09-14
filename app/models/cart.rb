@@ -11,6 +11,11 @@ class Cart
     @cart
   end
 
+  def remove_trip(trip_id)
+    @cart.delete(trip_id.to_s)
+    @cart
+  end
+
   def count
     @cart.values.sum
   end

@@ -5,8 +5,14 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
 
+<<<<<<< HEAD
+  get '/cart', to: 'cart#index'
+  post '/cart', to: 'cart#create'
+  delete '/cart', to: 'cart#destroy'
+=======
   resources :carts, only: [:create, :index]
 
+>>>>>>> 4b9352145d753dde73f1536c5b983db151495d77
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
