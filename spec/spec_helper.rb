@@ -3,10 +3,15 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
-  config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
-  end
+  config.mock_with :mocha
   config.shared_context_metadata_behavior = :apply_to_host_groups
+end
+
+def make_user(name)
+  User.create(name: name.to_s,
+              email: 'test@test.com',
+              username: "#{name}_test",
+              password: 'testing')
 end
 
 def make_trip(location)
