@@ -44,8 +44,7 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-
-
+  gem 'mocha'
 end
 
 group :development do

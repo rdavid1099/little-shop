@@ -11,8 +11,7 @@ class CartController < ApplicationController
   def destroy
     trip = Trip.find(params[:trip_id])
     session[:cart] = @cart.remove_trip(trip.id)
-    flash['alert-success'] = trip_successfully_removed(trip)
-
+    trip.destroy
     redirect_to cart_path
   end
 end
