@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def display_checkout
     if logged_in?
-      "Checkout"
+      link_to 'Checkout', orders_path, method: :post
     else
       link_to 'Login or Create Account to Checkout', login_path
     end
