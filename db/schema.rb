@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914112233) do
+ActiveRecord::Schema.define(version: 20160915203159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,26 @@ ActiveRecord::Schema.define(version: 20160914112233) do
 
   add_index "categories_trips", ["category_id", "trip_id"], name: "index_categories_trips_on_category_id_and_trip_id", using: :btree
   add_index "categories_trips", ["trip_id", "category_id"], name: "index_categories_trips_on_trip_id_and_category_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "orders_trips", id: false, force: :cascade do |t|
+    t.integer  "order_id",   null: false
+    t.integer  "trip_id",    null: false
+    t.string   "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "orders_trips", ["order_id", "trip_id"], name: "index_orders_trips_on_order_id_and_trip_id", using: :btree
+  add_index "orders_trips", ["trip_id", "order_id"], name: "index_orders_trips_on_trip_id_and_order_id", using: :btree
 
   create_table "trips", force: :cascade do |t|
     t.string   "title"
@@ -49,4 +69,5 @@ ActiveRecord::Schema.define(version: 20160914112233) do
     t.string   "email"
   end
 
+  add_foreign_key "orders", "users"
 end
