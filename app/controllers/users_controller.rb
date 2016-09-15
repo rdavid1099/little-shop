@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       @cart.empty? ? redirect_to(dashboard_path) : redirect_to(cart_path)
     else
-      flash.now[:error] = @user.errors.full_messages.join(', ')
+      flash.now['alert-danger'] = @user.errors.full_messages.join(', ')
       render :new
     end
   end
