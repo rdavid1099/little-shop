@@ -21,6 +21,18 @@ def make_trip(location)
               image: 'image.jpg')
 end
 
+def make_orders_trip(user, trip)
+  order = make_order(user)
+  OrdersTrip.create(order_id: order.id,
+                    trip_id: trip.id,
+                    quantity: 1)
+end
+
+def make_order(user)
+  Order.create(user_id: user.id,
+               status: 'ordered')
+end
+
 def create_category(title)
   Category.create(title: title.to_s)
 end
