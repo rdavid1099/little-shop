@@ -8,7 +8,7 @@ RSpec.describe Trip, type: :model do
     expect(trip).to be_valid
   end
 
- it 'and status is created by default' do
+  it 'and status is created by default' do
     trip = Trip.create(title: 'title',
                     description: 'description',
                     price: 'price',
@@ -16,7 +16,6 @@ RSpec.describe Trip, type: :model do
 
     expect(trip.status).to eq('active')
   end
-
 
   context 'validations' do
     it { is_expected.to validate_presence_of(:title) }
