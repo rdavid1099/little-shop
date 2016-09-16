@@ -8,6 +8,6 @@ class Trip < ActiveRecord::Base
   has_many :orders, through: :orders_trips
 
   def quantity_in_order
-    OrdersTrip.find_by(trip_id: self.id).quantity
+    OrdersTrip.find_by(trip_id: id).quantity
   end
 end
