@@ -10,9 +10,9 @@ RSpec.describe Trip, type: :model do
 
   it 'and status is created by default' do
     trip = Trip.create(title: 'title',
-                    description: 'description',
-                    price: 'price',
-                    image: 'image')
+                       description: 'description',
+                       price: 'price',
+                       image: 'image')
 
     expect(trip.status).to eq('active')
   end
