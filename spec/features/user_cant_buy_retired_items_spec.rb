@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "user can't buy retired tripss" do
-  scenario "user can view retired tripss but can't purchase them" do
+RSpec.feature 'user cant buy retired trips' do
+  scenario 'user can view retired tripss but cant purchase them' do
     user = make_user('test')
     trip = make_trip('alabama', 'retired')
     ApplicationController.any_instance.stubs(:logged_in?).returns(true)
@@ -10,7 +10,7 @@ RSpec.feature "user can't buy retired tripss" do
     visit trip_path(trip)
 
     expect(page).to have_content(trip.title.upcase)
-    expect(page).to have_content("Trip Expired")
-    expect(page).to_not have_content("Add to Cart")
+    expect(page).to have_content('Trip Expired')
+    expect(page).to_not have_content('Add to Cart')
   end
 end
