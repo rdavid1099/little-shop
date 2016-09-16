@@ -1,0 +1,14 @@
+<h1>Order: <%= @order.id %></h1>
+<% @order.trips.each do |trip| %>
+  <ul>
+    <li>Quantity: <%= trip.quantity_in_order %></li>
+    <li>Title: <%= link_to trip.title, trip_path(trip) %></li>
+    <li>Price: <%= trip.price %></li>
+  </ul>
+<% end %>
+<p>
+  Total Price: $<%= @order.total_price %><br>
+  Status: <%= @order.status.capitalize %><br>
+  Order Created At: <%= @order.created_at %><br>
+  Order Last Updated: <%= @order.updated_at %>
+</p>
