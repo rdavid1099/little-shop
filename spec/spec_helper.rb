@@ -14,18 +14,19 @@ def make_user(name)
               password: 'testing')
 end
 
-def make_trip(location)
+def make_trip(location, status = 'active')
   Trip.create(title: location.to_s,
               description: 'description',
               price: '199.99',
-              image: 'image.jpg')
+              image: 'image.jpg',
+              status: status)
 end
 
-def make_orders_trip(user, trip)
+def make_orders_trip(user, trip, quantity = 1)
   order = make_order(user)
   OrdersTrip.create(order_id: order.id,
                     trip_id: trip.id,
-                    quantity: 1)
+                    quantity: quantity)
 end
 
 def make_order(user)

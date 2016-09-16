@@ -1,4 +1,4 @@
 <h1><%= @trip.title.upcase %></h1>
 <%= image_tag @trip.image, class: 'trip-show-image' %>
 <p><%= @trip.description %></p>
-<%= button_to "Add to Cart", cart_path(trip_id: @trip.id), method: :post %>
+<%= display_trip_status %>

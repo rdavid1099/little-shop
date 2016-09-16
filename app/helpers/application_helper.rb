@@ -14,4 +14,12 @@ module ApplicationHelper
       link_to 'Login or Create Account to Checkout', login_path
     end
   end
+
+  def display_trip_status
+    if @trip.status == 'active'
+      button_to 'Add to Cart', cart_path(trip_id: @trip.id), method: :post
+    else
+      'Trip Expired'
+    end
+  end
 end
