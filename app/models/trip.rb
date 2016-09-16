@@ -18,6 +18,6 @@ class Trip < ActiveRecord::Base
   private
 
   def init
-    self.status ||= "active"
+    self.status ||= 'active'
   end
 end
