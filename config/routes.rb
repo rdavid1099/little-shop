@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :index, :show]
 
+  namespace :admin do
+    resources :orders, only: [:show]
+    get '/dashboard', to: 'orders#dashboard'
+  end
+
   get '/cart', to: 'cart#index'
   post '/cart', to: 'cart#create'
   delete '/cart', to: 'cart#destroy'
