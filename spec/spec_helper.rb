@@ -7,6 +7,14 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
+def make_admin(name)
+  User.create(name: name.to_s,
+              username: 'admin',
+              password: 'password',
+              email: 'admin@email.com',
+              role: 1)
+end
+
 def make_user(name)
   User.create(name: name.to_s,
               email: 'test@test.com',

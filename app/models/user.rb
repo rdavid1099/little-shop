@@ -8,4 +8,13 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: EMAIL_REGEX
+  validates :role, presence: true
+
+  enum role: %w(user admin)
+
+  before_validation :set_role
+
+  def set_role
+    self.role ||= 0
+  end
 end
