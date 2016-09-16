@@ -3,11 +3,21 @@ class Trip < ActiveRecord::Base
   validates :description, presence: true
   validates :price, presence: true
   validates :image, presence: true
+  validates :status, presence: true
+
   has_and_belongs_to_many :categories
   has_many :orders_trips
   has_many :orders, through: :orders_trips
 
+  before_validation :init
+
   def quantity_in_order(order_id)
     OrdersTrip.find_by(order_id: order_id, trip_id: id).quantity
+  end
+
+  private
+
+  def init
+    self.status ||= 'active'
   end
 end
