@@ -21,11 +21,11 @@ def make_trip(location)
               image: 'image.jpg')
 end
 
-def make_orders_trip(user, trip)
+def make_orders_trip(user, trip, quantity = 1)
   order = make_order(user)
   OrdersTrip.create(order_id: order.id,
                     trip_id: trip.id,
-                    quantity: 1)
+                    quantity: quantity)
 end
 
 def make_order(user)

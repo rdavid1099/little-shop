@@ -7,7 +7,7 @@ class Trip < ActiveRecord::Base
   has_many :orders_trips
   has_many :orders, through: :orders_trips
 
-  def quantity_in_order
-    OrdersTrip.find_by(trip_id: id).quantity
+  def quantity_in_order(order_id)
+    OrdersTrip.find_by(order_id: order_id, trip_id: id).quantity
   end
 end
