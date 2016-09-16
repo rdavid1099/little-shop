@@ -14,11 +14,12 @@ def make_user(name)
               password: 'testing')
 end
 
-def make_trip(location)
+def make_trip(location, status = 'active')
   Trip.create(title: location.to_s,
               description: 'description',
               price: '199.99',
-              image: 'image.jpg')
+              image: 'image.jpg',
+              status: status)
 end
 
 def make_orders_trip(user, trip, quantity = 1)
