@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
 
   resources :trips, only: [:index, :show]
 
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:show]
-    get '/dashboard', to: 'orders#dashboard'
+    get '/dashboard', to: 'users#dashboard'
+    get '/settings', to: 'users#edit'
+    patch '/settings', to: 'users#update'
   end
 
   get '/cart', to: 'cart#index'
