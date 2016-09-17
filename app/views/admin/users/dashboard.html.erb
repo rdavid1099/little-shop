@@ -8,4 +8,18 @@
     <li>Username: <%= @user.username %></li>
     <li>Profile Last Updated: <%= @user.updated_at %></li>
   </ul>
+
+  <h4>Orders</h4>
+  <h5>Orders Status</h5>
+  <ul>
+    <li><%= link_to 'Completed', admin_dashboard_path(status: 'completed') %>: <%= @orders.statuses('completed').count %></li>
+    <li><%= link_to 'Ordered', admin_dashboard_path(status: 'ordered') %>: <%= @orders.statuses('ordered').count %></li>
+    <li><%= link_to 'Paid', admin_dashboard_path(status: 'paid') %>: <%= @orders.statuses('paid').count %></li>
+    <li><%= link_to 'Cancelled', admin_dashboard_path(status: 'cancelled') %>: <%= @orders.statuses('cancelled').count %></li>
+  </ul>
+  <ul>
+    <% @orders_status.each do |order| %>
+      <li><%= link_to order.id, order_path(order) %> - Status: <%= order.status %></li>
+    <% end %>
+  </ul>
 </div>

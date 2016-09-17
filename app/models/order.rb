@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  scope :statuses, -> (status) { where status: status }
   validates :status, presence: true
   validates_inclusion_of :status, in: %w(paid ordered cancelled completed)
   has_many :orders_trips

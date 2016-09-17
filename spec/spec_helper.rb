@@ -30,26 +30,27 @@ def make_trip(location, status = 'active')
               status: status)
 end
 
-def make_orders_trip(user, trip, quantity = 1)
-  order = make_order(user)
+def make_orders_trip(user, trip, quantity = 1, status = 'ordered')
+  order = make_order(user, status)
   OrdersTrip.create(order_id: order.id,
                     trip_id: trip.id,
                     quantity: quantity)
 end
 
-def make_order(user)
+def make_order(user, status = 'ordered')
   Order.create(user_id: user.id,
-               status: 'ordered')
+               status: status)
 end
 
 def create_category(title)
   Category.create(title: title.to_s)
 end
 
-def make_a_group_of_orders_with_certain_status(trip, status, number_of_trips)
-  number_of_trips.times do
+def make_a_group_of_orders_with_certain_status(place, status, number_of_trips)
+  number_of_trips.times do |index|
+    index += 1
     user = make_user("user_#{index}")
-    trip = make_trip("#{trip}_#{index}", status)
-    make_orders_trip(user, trip)
+    trip = make_trip("#{place}_#{index}")
+    make_orders_trip(user, trip, 1, status)
   end
 end
