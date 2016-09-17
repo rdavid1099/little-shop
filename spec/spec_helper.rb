@@ -45,3 +45,11 @@ end
 def create_category(title)
   Category.create(title: title.to_s)
 end
+
+def make_a_group_of_orders_with_certain_status(trip, status, number_of_trips)
+  number_of_trips.times do
+    user = make_user("user_#{index}")
+    trip = make_trip("#{trip}_#{index}", status)
+    make_orders_trip(user, trip)
+  end
+end
