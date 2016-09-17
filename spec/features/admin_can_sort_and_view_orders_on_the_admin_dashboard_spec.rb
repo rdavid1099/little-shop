@@ -10,7 +10,7 @@ RSpec.feature 'Admin can view orders on dashboard path' do
     visit admin_dashboard_path
     expect(page).to have_content("Ordered: 1")
     expect(page).to have_content("Paid: 1")
-    expect(page).to have_link(Order.first.id, href: order_path(Order.first.id))
-    expect(page).to have_link(Order.last.id, href: order_path(Order.last.id))
+    expect(page).to have_link(Order.first.id, href: admin_order_path(Order.first.id))
+    expect(page).to have_link(Order.last.id, href: admin_order_path(Order.last.id))
   end
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :index, :show]
 
   namespace :admin do
-    resources :orders, only: [:show]
+    resources :orders, only: [:show, :update]
     get '/dashboard', to: 'users#dashboard'
     get '/settings', to: 'users#edit'
     patch '/settings', to: 'users#update'

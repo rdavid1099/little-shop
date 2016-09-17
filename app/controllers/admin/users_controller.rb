@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::BaseController
   def dashboard
     @user = current_user
     @orders = Order.all
-    @orders_status = orders_filter(params[:status])
+    @orders_status = orders_filter(params[:status]).order(id: :desc)
   end
 
   def edit

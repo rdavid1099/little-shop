@@ -23,33 +23,35 @@ RSpec.feature 'admin can filter orders' do
 
     click_on "Ordered"
 
-    expect(page).to have_link(order_1.id, href: order_path(order_1.id))
-    expect(page).to_not have_link(order_2.id, href: order_path(order_2.id))
-    expect(page).to_not have_link(order_3.id, href: order_path(order_3.id))
-    expect(page).to_not have_link(order_4.id, href: trip_path(order_4.id))
+    expect(page).to have_link(order_1.id, href: admin_order_path(order_1.id))
+    expect(page).to_not have_link(order_2.id, href: admin_order_path(order_2.id))
+    expect(page).to_not have_link(order_3.id, href: admin_order_path(order_3.id))
+    expect(page).to_not have_link(order_4.id, href: admin_order_path(order_4.id))
 
     visit admin_dashboard_path
     click_on "Paid"
 
-    expect(page).to have_link(order_2.id, href: order_path(order_2.id))
-    expect(page).to_not have_link(order_1.id, href: order_path(order_1.id))
-    expect(page).to_not have_link(order_3.id, href: order_path(order_3.id))
-    expect(page).to_not have_link(order_4.id, href: trip_path(order_4.id))
+    expect(page).to have_link(order_2.id, href: admin_order_path(order_2.id))
+    expect(page).to_not have_link(order_1.id, href: admin_order_path(order_1.id))
+    expect(page).to_not have_link(order_3.id, href: admin_order_path(order_3.id))
+    expect(page).to_not have_link(order_4.id, href: admin_order_path(order_4.id))
 
     visit admin_dashboard_path
-    click_on "Cancelled"
+    within('div.orders-statuses') do
+      click_on "Cancelled"
+    end
 
-    expect(page).to have_link(order_3.id, href: order_path(order_3.id))
-    expect(page).to_not have_link(order_1.id, href: order_path(order_1.id))
-    expect(page).to_not have_link(order_2.id, href: order_path(order_2.id))
-    expect(page).to_not have_link(order_4.id, href: trip_path(order_4.id))
-  
+    expect(page).to have_link(order_3.id, href: admin_order_path(order_3.id))
+    expect(page).to_not have_link(order_1.id, href: admin_order_path(order_1.id))
+    expect(page).to_not have_link(order_2.id, href: admin_order_path(order_2.id))
+    expect(page).to_not have_link(order_4.id, href: admin_order_path(order_4.id))
+
     visit admin_dashboard_path
     click_on "Completed"
 
-    expect(page).to have_link(order_4.id, href: order_path(order_4.id))
-    expect(page).to_not have_link(order_1.id, href: order_path(order_1.id))
-    expect(page).to_not have_link(order_3.id, href: order_path(order_3.id))
-    expect(page).to_not have_link(order_2.id, href: trip_path(order_2.id))
+    expect(page).to have_link(order_4.id, href: admin_order_path(order_4.id))
+    expect(page).to_not have_link(order_1.id, href: admin_order_path(order_1.id))
+    expect(page).to_not have_link(order_3.id, href: admin_order_path(order_3.id))
+    expect(page).to_not have_link(order_2.id, href: admin_order_path(order_2.id))
   end
 end
