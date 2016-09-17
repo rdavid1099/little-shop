@@ -17,7 +17,7 @@ end
 
 def make_user(name)
   User.create(name: name.to_s,
-              email: 'test@test.com',
+              email: "#{name}@#{name}.com",
               username: "#{name}_test",
               password: 'testing')
 end
