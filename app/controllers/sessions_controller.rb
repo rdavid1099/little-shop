@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      flash.now['alert-danger'] = user.errors.full_messages.join(', ')
+      flash.now['alert-danger'] = 'Invalid Username and/or Password'
       render :new
     end
   end

@@ -1,0 +1,15 @@
+<h1>Edit Account Details</h1>
+<%= form_for [:admin, @user], url: 'settings' do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :email, "Email Address" %><br>
+  <%= f.text_field :email %><br><br>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br><br>
+  <%= f.label :password_confirmation, "Confirm Password" %><br>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Update Account" %>
+  <% end %>
