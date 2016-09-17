@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class OrdersController < BaseController
   def create
     creator = OrderCreator.new(current_user, @cart)
     creator.create

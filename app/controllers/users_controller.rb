@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
+  skip_before_action :validate_user, only: [:new, :create]
   def new
     @user = User.new
   end
@@ -16,6 +17,20 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to dashboard_path
+    else
+      flash.now['alert-danger'] = @user.errors.full_messages.join(', ')
+      render :edit
+    end
   end
 
   private
