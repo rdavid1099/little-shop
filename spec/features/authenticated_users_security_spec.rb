@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature "authenticated user security" do
-  scenario "authenticated user cannot see other user private data" do
+RSpec.feature 'authenticated user security' do
+  scenario 'authenticated user cannot see other user private data' do
     user_1 = make_user('user_1')
     user_1_trip = make_trip('vail')
     user_1_order = make_orders_trip(user_1, user_1_trip)
-    user_2 = make_user('user_2')
+    make_user('user_2')
     visit login_path
     fill_in 'sessions_username', with: 'user_2_test'
     fill_in 'sessions_password', with: 'testing'
