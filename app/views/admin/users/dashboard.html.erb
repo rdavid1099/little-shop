@@ -1,6 +1,7 @@
 <h1>No Refunds Travel Admin Dashboard</h1>
-<div class="dashboard">
+<div class='dashboard'>
   <h4>Profile Information</h4>
+  <%= link_to 'Account Settings', admin_settings_path %>
   <ul>
     <li>Name: <%= @user.name %></li>
     <li>Email: <%= @user.email %></li>

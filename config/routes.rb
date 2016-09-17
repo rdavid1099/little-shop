@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:show]
-    get '/dashboard', to: 'orders#dashboard'
+    get '/dashboard', to: 'users#dashboard'
+    get '/settings', to: 'users#edit'
+    patch '/settings', to: 'users#update'
   end
 
   get '/cart', to: 'cart#index'
