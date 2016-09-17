@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'only admin can access admin dashboard' do
   scenario 'logged in admin can access dashboard' do
-    admin = make_admin('admin')
+    make_admin('admin')
 
     visit login_path
     fill_in 'sessions_username', with: 'admin'
@@ -14,7 +14,7 @@ RSpec.feature 'only admin can access admin dashboard' do
   end
 
   scenario 'logged in user cannot access admin dashboard' do
-    user = make_user('user')
+    make_user('user')
 
     visit login_path
     fill_in 'sessions_username', with: 'user_test'
