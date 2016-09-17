@@ -1,6 +1,8 @@
 class Admin::UsersController < Admin::BaseController
   def dashboard
     @user = current_user
+    @orders = Order.all
+    @orders_status = orders_filter(params[:status]).order(id: :desc)
   end
 
   def edit
@@ -21,5 +23,13 @@ class Admin::UsersController < Admin::BaseController
 
   def user_params
     params.require(:user).permit(:username, :name, :email, :password)
+  end
+
+  def orders_filter(params)
+    if params.nil?
+      Order.all
+    else
+      Order.statuses(params)
+    end
   end
 end

@@ -22,4 +22,14 @@ module ApplicationHelper
       'Trip Expired'
     end
   end
+
+  def display_order_admin_options(order_id, status)
+    if status == 'ordered'
+      "#{link_to 'Mark as Paid', admin_order_path(id: order_id, status: 'paid'), method: :patch} | #{link_to 'Cancelled', admin_order_path(id: order_id, status: 'cancelled'), method: :patch}"
+    elsif status == 'paid'
+      "#{link_to 'Mark as Completed', admin_order_path(id: order_id, status: 'completed'), method: :patch} | #{link_to 'Cancelled', admin_order_path(id: order_id, status: 'cancelled'), method: :patch}"
+    else
+      ""
+    end
+  end
 end
