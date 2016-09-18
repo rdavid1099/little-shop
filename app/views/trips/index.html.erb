@@ -12,7 +12,7 @@
           <h3><%= trip.title %></h3>
           <p>
             Categories:<br>
-            <%= trip.categories.map { |cat| link_to cat.title, category_path(cat) }.join(', ').html_safe %>
+            <%= trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %>
           </p>
           <p><%= link_to 'More Information', trip_path(trip), class: 'btn btn-primary btn-lg' %></p>
         </div>

@@ -5,7 +5,7 @@
     <h5>Trip Description:</h5>
     <p><%= @trip.description %></p>
     <h5>Categories:</h5>
-    <%= @trip.categories.map { |cat| link_to cat.title, category_path(cat) }.join(', ') %>
+    <%= @trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %>
     <h5>Price:</h5>
     $<%= @trip.price %>
     <%= display_trip_status %>
