@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root 'trips#dashboard'
+
   resources :users, only: [:new, :create, :edit, :update]
 
   resources :trips, only: [:index, :show]
 
-  resources :categories, only: [:show]
+  resources :categories, only: [:index, :show]
 
   resources :orders, only: [:create, :index, :show]
 
