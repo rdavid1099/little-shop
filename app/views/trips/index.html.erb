@@ -1,20 +1,20 @@
 <center>
-  <h2>All Trips</h2>
-  <h4>Luxury is Just a Click Away</h4>
+  <h1><strong>All Trips</strong></h1>
+  <h2>Luxury is Just a Click Away</h2>
 </center>
 
-<div class="row">
+<div class='row'>
   <% @trips.each do |trip| %>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
+    <div class='col-sm-6 col-md-4'>
+      <div class='thumbnail'>
         <%= image_tag trip.image %>
-        <div class="caption">
+        <div class='caption'>
           <h3><%= trip.title %></h3>
           <p>
             Categories:<br>
             <%= trip.categories.map { |cat| link_to cat.title, category_path(cat) }.join(', ') %>
           </p>
-          <p><%= link_to "More Information", trip_path(trip), class: 'btn btn-primary btn-lg' %></p>
+          <p><%= link_to 'More Information', trip_path(trip), class: 'btn btn-primary btn-lg' %></p>
         </div>
       </div>
     </div>
