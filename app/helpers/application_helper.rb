@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def display_trip_status
     if @trip.status == 'active'
-      button_to 'Add to Cart', cart_path(trip_id: @trip.id), method: :post, class: 'btn btn-default'
+      button_to 'Add to Cart', cart_path(trip_id: @trip.id), method: :post, class: 'btn btn-success'
     else
       'Trip Expired'
     end
