@@ -16,17 +16,17 @@ class Trip < ActiveRecord::Base
   end
 
   def self.get_top_sellers
-    top_sellers = self.get_top_selling_trips
-    top_trip_ids = top_sellers.sort_by(&:last).reverse.to_h.keys[0..2]
+    top_trip_ids = get_top_selling_trips.keys
+    top_trip_ids += add_random_trips(top_trip_ids) if top_trip_ids.count < 3
     top_trip_ids.map { |trip_id| Trip.find(trip_id) }
   end
 
+  def self.add_random_trips(top_trip_ids)
+    Trip.order('RANDOM()').limit(3 - top_trip_ids.count).map(&:id)
+  end
+
   def self.get_top_selling_trips
-    self.all.reduce({}) do |result, trip|
-      quantity = trip.orders_trips.reduce(0) { |sum, o| sum += o.quantity.to_i }
-      result[trip.id] = quantity
-      result
-    end
+    Trip.joins(:orders_trips).group(:quantity).order('count(*) DESC').limit(3).count
   end
 
   private
