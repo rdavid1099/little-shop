@@ -1,0 +1,37 @@
+<div class="well well-sm">
+  <strong>View</strong>
+  <div class="btn-group">
+    <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+    </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+      class="glyphicon glyphicon-th"></span>Grid</a>
+    </div>
+  </div>
+  <div id="products" class="row list-group">
+    <% @trips.each do |trip| %>
+    <div class="item  col-xs-4 col-lg-4">
+      <div class="thumbnail">
+        <a href='/trips/<%= trip.id %>'><%= image_tag trip.image %></a>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            <%= link_to trip.title, trip_path(trip) %></h4>
+            <p class="group inner list-group-item-text">
+              <%= trip.description %><br /><br />
+              <%= trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %></p>
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <p class="lead">
+                    $ <%= trip.price %></p>
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <%   if trip.status == 'active' %>
+                    <%=  button_to 'Add to Cart', cart_path(trip_id: trip.id), method: :post, class: 'btn btn-success' %>
+                    <% else %>
+                    <%= 'Trip Expired' %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
