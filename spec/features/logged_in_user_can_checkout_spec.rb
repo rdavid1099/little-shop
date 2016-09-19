@@ -17,7 +17,7 @@ RSpec.feature 'logged in user can checkout' do
     within('div.alert') do
       expect(page).to have_content('Order was successfully placed')
     end
-    within('tr') do
+    within('.col-md-10') do
       expect(page).to have_content(trip.orders.last.id)
     end
   end

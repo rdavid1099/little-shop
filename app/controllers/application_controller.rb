@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
   before_action :set_cart
+  before_action :set_categories
+
+  def set_categories
+    @categories = Category.all
+  end
 
   def set_cart
     @cart = Cart.new(session[:cart])

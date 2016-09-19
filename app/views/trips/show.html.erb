@@ -1,4 +1,17 @@
-<h1><%= @trip.title.upcase %></h1>
-<%= image_tag @trip.image, class: 'trip-show-image' %>
-<p><%= @trip.description %></p>
-<%= display_trip_status %>
+<center><h1><%= @trip.title.upcase %></h1></center>
+<div class='row'>
+  <div class='col-md-1'></div>
+  <div class='col-md-6'>
+    <h5>Trip Description:</h5>
+    <p><%= @trip.description %></p>
+    <h5>Categories:</h5>
+    <%= @trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %>
+    <h5>Price:</h5>
+    $<%= @trip.price %>
+    <%= display_trip_status %>
+  </div>
+  <div class='col-md-3'>
+    <%= image_tag @trip.image, class: 'trip-show-image' %>
+  </div>
+  <div class='col-md-1'></div>
+</div>
