@@ -27,6 +27,12 @@
       </ul>
 
       <ul class='nav navbar-nav navbar-right'>
+        <li><a class='navbar-brand' href='/cart'>
+          <span class='glyphicon glyphicon-shopping-cart' aria-hidden ='true'></span>
+          <% unless @cart.count.zero? %>
+            <span class="badge"> <%= @cart.count %> </span>
+          <% end %>
+        </a></li>
         <%= render partial: 'layouts/login' %>
       </ul>
     </div>
