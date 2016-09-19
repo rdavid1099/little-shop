@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :trips, only: [:index, :show]
 
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:show]
 
   resources :orders, only: [:create, :index, :show]
 
