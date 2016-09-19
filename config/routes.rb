@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'trips#dashboard'
 
   resources :users, only: [:new, :create, :edit, :update]
