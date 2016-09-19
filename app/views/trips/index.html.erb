@@ -1,22 +1,4 @@
-<center>
-  <h1><strong>All Trips</strong></h1>
-  <h2>Luxury is Just a Click Away</h2>
-</center>
-
-<div class='row'>
-  <% @trips.each do |trip| %>
-    <div class='col-sm-6 col-md-4'>
-      <div class='thumbnail'>
-        <%= image_tag trip.image, id: 'trip-index-pic' %>
-        <div class='caption'>
-          <h3><%= trip.title %></h3>
-          <p>
-            Categories:<br>
-            <%= trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %>
-          </p>
-          <p><%= link_to 'More Information', trip_path(trip), class: 'btn btn-primary btn-lg' %></p>
+<div class="container">
+  <h1>All Trips <small>Luxury is Just a Click Away</small></h1>
+  <%= render partial: 'shared/list_view' %>
         </div>
-      </div>
-    </div>
-  <% end %>
-</div>
