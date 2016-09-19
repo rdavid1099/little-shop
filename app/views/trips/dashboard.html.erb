@@ -1,0 +1,20 @@
+<center><h1>Travel So Great...You'll Forget Refunds</h1></center>
+<div class='jumbotron'>
+  <div class='row'>
+    <div class="col-md-6">
+      <h3>Our Mission</h3>
+      <p>
+        At No Refunds Travel, we scour the globe for some of the most<br>
+        sought after destinations.  While several businesses say they'll take<br>
+        you places you've never been, we guarantee our destinations will<br>
+        take your breath away.<br><br>
+        Here at No Refunds Travel, we're pretty sure you'll enjoy your vacation.
+      </p>
+      <%= link_to 'Browse All Trips', trips_path, class: 'btn btn-primary btn-lg' %>
+    </div>
+    <div class='col-md-6'>
+      <h3>Top Selling Trips</h3>
+      <%= render partial: 'top_sellers' %>
+    </div>
+  </div>
+</div>
