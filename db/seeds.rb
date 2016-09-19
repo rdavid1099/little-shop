@@ -15,6 +15,8 @@ trips = Trip.create([
   {title: 'Island Adventure Park', description: "Be one of the first to see this state of the art adventure park.  What could possibli go wrong?", price: '1999.95', image: 'http://vignette2.wikia.nocookie.net/jurassicpark/images/f/fe/Gate_Entrance_(2).JPG/revision/latest?cb=20121109061245'},
   {title: 'Space Travel Experience', description: "Join legendary captain Mark Watney on this once in a lifetime opportunity to be one of the first civilians to colonize Mars.", price: '99999.95', image: 'https://lovelace-media.imgix.net/uploads/36/85de1950-48ee-0133-9dc2-0af7184f89fb.jpg'},
   {title: 'Hotel Winter Housekeeper', description: "FREE! Come stay the winter at the beautiful Stanley hotel in room 237. Just keep the place in one piece and make sure you play; don't do all work.", price: '0', image: 'http://www.themarysue.com/wp-content/uploads/2014/07/OverlookHotelShining.png'},
+  {title: 'Crazy Crowded Beach', description: "Everyone is there but YOU! Experience the true peak season from June to August at Crazy Crowded Beach, which is bustling with activity.  This beach will not bore!", price: '1599.99', image: 'http://www.theamazingpics.com/wp-content/uploads/2013/07/Crazy-Crowded-Beach-in-Rio-De-Janeiro-that-is-Insane.jpg'},
+  {title: 'Scenic Helicopter Ride - Nebraska', description: "Circles and squares as far as the eye can see!  Experience Nebraska's great plains like never before! View many historic trails explored by the Lewis and Clark Expedition. Where the West Begins!", price: '9.99', image: 'http://media.gettyimages.com/videos/view-of-center-pivot-irrigation-fields-northwest-of-alliance-alliance-video-id505943305?s=640x640'}
 ])
 
 CategoriesTrip.create([
@@ -50,16 +52,26 @@ CategoriesTrip.create([
 ])
 CategoriesTrip.create([
   {category: Category.find_or_create_by(title: 'Family Fun'), trip: trips[6]},
-  {category: Category.find_or_create_by(title: 'Island Getaway'), trip: trips[6]},
+  {category: Category.find_or_create_by(title: 'Island Getaway'), trip: trips[6]}
 ])
 CategoriesTrip.create([
   {category: Category.find_or_create_by(title: 'Space Travel'), trip: trips[7]},
-  {category: Category.find_or_create_by(title: 'One of a Kind'), trip: trips[7]},
+  {category: Category.find_or_create_by(title: 'One of a Kind'), trip: trips[7]}
 ])
 CategoriesTrip.create([
   {category: Category.find_or_create_by(title: 'Family Fun'), trip: trips[8]},
   {category: Category.find_or_create_by(title: 'Mountains'), trip: trips[8]},
   {category: Category.find_or_create_by(title: 'Bang For Your Buck'), trip: trips[8]}
+])
+CategoriesTrip.create([
+  {category: Category.find_or_create_by(title: 'Family Fun'), trip: trips[9]},
+  {category: Category.find_or_create_by(title: 'Beach'), trip: trips[9]},
+  {category: Category.find_or_create_by(title: 'Water Sports'), trip: trips[9]}
+])
+CategoriesTrip.create([
+  {category: Category.find_or_create_by(title: 'Family Fun'), trip: trips[10]},
+  {category: Category.find_or_create_by(title: 'Xtreme'), trip: trips[10]},
+  {category: Category.find_or_create_by(title: 'Bang For Your Buck'), trip: trips[10]}
 ])
 
 User.create(name: 'Admin Bob', username: 'admin', password: '@dminPa$$word', email: 'admin@email.com', role: 1)
