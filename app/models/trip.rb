@@ -30,6 +30,17 @@ class Trip < ActiveRecord::Base
     Trip.joins(:orders_trips).group(:quantity).order('count(*) DESC').limit(3).count
   end
 
+  def create(params)
+    trip = Trip.new(params)
+    params[:category_ids].each do |cat_id|
+      CategoriesTrip.create(
+        category_id: cat_id,
+        trip_id: find_or_create_by(title: params[:title])
+      )
+    end
+    trip.save
+  end
+
   private
 
   def init
