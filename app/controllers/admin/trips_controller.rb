@@ -4,10 +4,12 @@ class Admin::TripsController < Admin::BaseController
   end
 
   def create
-    if @trip.create(trip_params)
-
+    @trip = Trip.new
+    if @trip.create_trip_with_category(trip_params)
+      redirect_to admin_trip_path(Trip.last)
     else
-
+      flash.now['alert-danger'] = 'Trip did not save'
+      render :new
     end
   end
 
@@ -15,6 +17,7 @@ class Admin::TripsController < Admin::BaseController
   end
 
   def show
+    @trip = Trip.find(params[:id])
   end
 
   def edit
@@ -29,6 +32,6 @@ class Admin::TripsController < Admin::BaseController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description, :price, :category_ids, :trip_image)
+    params.require(:trip).permit(:title, :description, :price, :trip_image, :category_ids => [])
   end
 end

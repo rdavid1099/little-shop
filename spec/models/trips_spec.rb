@@ -1,6 +1,6 @@
 RSpec.describe Trip, type: :model do
   it 'can be created with the proper params' do
-    trip = Trip.new(title: 'title', description: 'description', price: 'price')
+    trip = Trip.new(title: 'title', description: 'description', price: 1)
 
     expect(trip).to be_valid
   end
@@ -8,7 +8,7 @@ RSpec.describe Trip, type: :model do
   it 'status is created by default' do
     trip = Trip.create(title: 'title',
                        description: 'description',
-                       price: 'price')
+                       price: 1)
 
     expect(trip.status).to eq('active')
   end

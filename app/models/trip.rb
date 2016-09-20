@@ -4,6 +4,7 @@ class Trip < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
+  validates_numericality_of :price, :on => :create, greater_than_or_equal_to: 1
   validates :status, presence: true
 
   has_and_belongs_to_many :categories
@@ -30,18 +31,30 @@ class Trip < ActiveRecord::Base
     Trip.joins(:orders_trips).group(:quantity).order('count(*) DESC').limit(3).count
   end
 
-  def create(params)
-    trip = Trip.new(params)
-    params[:category_ids].each do |cat_id|
-      CategoriesTrip.create(
-        category_id: cat_id,
-        trip_id: find_or_create_by(title: params[:title])
-      )
+  def create_trip_with_category(params)
+    trip = Trip.new(trip_params(params))
+    if !params[:category_ids].nil? && trip.save
+      add_categories_trips(params[:category_ids], trip.id)
+      true
+    else
+      false
     end
-    trip.save
+  end
+
+  def add_categories_trips(category_ids, trip_id)
+    category_ids.each do |cat_id|
+      CategoriesTrip.create(category_id: cat_id, trip_id: trip_id)
+    end
   end
 
   private
+
+  def trip_params(params)
+    {title: params[:title],
+     description: params[:description],
+     price: params[:price],
+     trip_image: params[:trip_image]}
+  end
 
   def init
     self.status ||= 'active'
