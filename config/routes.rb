@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   root 'trips#dashboard'
 
+  namespace :admin do
+    resources :orders, only: [:show, :update]
+    resources :trips
+    get '/dashboard', to: 'users#dashboard'
+    get '/settings', to: 'users#edit'
+    patch '/settings', to: 'users#update'
+  end
+
   resources :users, only: [:new, :create, :edit, :update]
 
   resources :trips, only: [:index, :show]
@@ -9,13 +17,6 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   resources :orders, only: [:create, :index, :show]
-
-  namespace :admin do
-    resources :orders, only: [:show, :update]
-    get '/dashboard', to: 'users#dashboard'
-    get '/settings', to: 'users#edit'
-    patch '/settings', to: 'users#update'
-  end
 
   get '/cart', to: 'cart#index'
   post '/cart', to: 'cart#create'
