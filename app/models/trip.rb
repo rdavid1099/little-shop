@@ -1,8 +1,9 @@
 class Trip < ActiveRecord::Base
-  validates :title, presence: true
+  has_attached_file :trip_image, styles: { medium: '400x250', large: '900x350' }, default_url: '/images/medium/default-trip-img.jpg'
+  validates_attachment_content_type :trip_image, content_type: ["image/jpg", "image/jpeg", "image/png"]
+  validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
-  validates :image, presence: true
   validates :status, presence: true
 
   has_and_belongs_to_many :categories
