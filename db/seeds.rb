@@ -6,17 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 trips = Trip.create([
-  {title: "Kenny's Parents' Basement", description: "Enjoy a luxurious weekend at Kenny's Parents' basement.", price: '199.99', image: '/assets/Basement.jpg'},
-  {title: 'Tea Ski', description: "Sit in the lap of luxury.  Enjoy a relaxing weekend water skiing in a freshly steeped pond.", price: '599.99', image: '/assets/shoeski_fail.jpg'},
-  {title: 'Treehouse Getaway', description: "Who said treehouses are only for kids.  You and your significant other can relive the days of old climbing up and down this luxurious bungalow.", price: '299.99', image: '/assets/treehouse.jpg'},
-  {title: 'Spooky Forest', description: "It doesn't have to be Halloween to have a spooky getaway.  Be one with the wilderness at this creepy destination, if you dare.", price: '666.00', image: '/assets/Sunny_Lenga_Forest_%283321050068%29.jpg'},
-  {title: 'Slippery Slope', description: "If you take this vacation, you'll buy everything else we have to offer.  See why everyone says there's no coming back from this luxurious destination.", price: '111.11', image: '/assets/slippery-slope.jpg'},
-  {title: 'New Snork City', description: "Come along with Snorks.  Swim along with Snorks.  So much to see waiting for you and me.  Have some fun with the Snorks", price: '800.88', image: '/assets/Snorks_119_1.jpg'},
-  {title: 'Island Adventure Park', description: "Be one of the first to see this state of the art adventure park.  What could possibli go wrong?", price: '1999.95', image: '/assets/jurassic.jpg'},
-  {title: 'Space Travel Experience', description: "Join legendary captain Mark Watney on this once in a lifetime opportunity to be one of the first civilians to colonize Mars.", price: '99999.95', image: '/assets/mars.jpg'},
-  {title: 'Hotel Winter Housekeeper', description: "FREE! Come stay the winter at the beautiful Stanley hotel in room 237. Just keep the place in one piece and make sure you play; don't do all work.", price: '0', image: '/assets/OverlookHotelShining.fw.png'},
-  {title: 'Crazy Crowded Beach', description: "Everyone is there but YOU! Experience the true peak season from June to August at Crazy Crowded Beach, which is bustling with activity.  This beach will not bore!", price: '1599.99', image: '/assets/Crazy-Crowded-Beach-in-Rio-De-Janeiro-that-is-Insane.jpg'},
-  {title: 'Scenic Helicopter Ride - Nebraska', description: "Circles and squares as far as the eye can see!  Experience Nebraska's great plains like never before! View many historic trails explored by the Lewis and Clark Expedition. Where the West Begins!", price: '9.99', image: '/assets/field.jpg'}
+  {title: "Kenny's Parents' Basement", description: "Enjoy a luxurious weekend at Kenny's Parents' basement.", price: '199.99', image: 'http://i.imgur.com/9D0njLD.jpg'},
+  {title: 'Tea Ski', description: "Sit in the lap of luxury.  Enjoy a relaxing weekend water skiing in a freshly steeped pond.", price: '599.99', image: 'https://i.imgur.com/8DtIkgE.jpg'},
+  {title: 'Treehouse Getaway', description: "Who said treehouses are only for kids.  You and your significant other can relive the days of old climbing up and down this luxurious bungalow.", price: '299.99', image: 'https://i.imgur.com/ANTQrXa.jpg'},
+  {title: 'Spooky Forest', description: "It doesn't have to be Halloween to have a spooky getaway.  Be one with the wilderness at this creepy destination, if you dare.", price: '666.00', image: 'https://i.imgur.com/IVNSOot.jpg'},
+  {title: 'Slippery Slope', description: "If you take this vacation, you'll buy everything else we have to offer.  See why everyone says there's no coming back from this luxurious destination.", price: '111.11', image: 'https://i.imgur.com/BhzC5RD.jpg'},
+  {title: 'New Snork City', description: "Come along with Snorks.  Swim along with Snorks.  So much to see waiting for you and me.  Have some fun with the Snorks", price: '800.88', image: 'https://i.imgur.com/cQLxNUg.jpg'},
+  {title: 'Island Adventure Park', description: "Be one of the first to see this state of the art adventure park.  What could possibli go wrong?", price: '1999.95', image: 'https://i.imgur.com/zdYE8or.jpg'},
+  {title: 'Space Travel Experience', description: "Join legendary captain Mark Watney on this once in a lifetime opportunity to be one of the first civilians to colonize Mars.", price: '99999.95', image: 'https://i.imgur.com/qa0E8xF.jpg'},
+  {title: 'Hotel Winter Housekeeper', description: "FREE! Come stay the winter at the beautiful Stanley hotel in room 237. Just keep the place in one piece and make sure you play; don't do all work.", price: '0', image: 'https://i.imgur.com/iIjlR4V.png'},
+  {title: 'Crazy Crowded Beach', description: "Everyone is there but YOU! Experience the true peak season from June to August at Crazy Crowded Beach, which is bustling with activity.  This beach will not bore!", price: '1599.99', image: 'https://i.imgur.com/7gDGpnE.jpg'},
+  {title: 'Scenic Helicopter Ride - Nebraska', description: "Circles and squares as far as the eye can see!  Experience Nebraska's great plains like never before! View many historic trails explored by the Lewis and Clark Expedition. Where the West Begins!", price: '9.99', image: 'https://i.imgur.com/g59r07b.jpg'}
 ])
 
 CategoriesTrip.create([
