@@ -53,7 +53,7 @@ class Trip < ActiveRecord::Base
     { title: params[:title],
       description: params[:description],
       price: params[:price],
-      trip_image: params[:trip_image] }
+      trip_image: params[:image] }
   end
 
   def init

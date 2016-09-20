@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class='navbar navbar-default'>
+  <div class='wrapper navbar navbar-default'>
     <div class='container-fluid'>
       <div class='navbar-header'>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -46,10 +46,10 @@
   </div>
 </div>
   <% flash.each do |type, message| %>
-    <%= content_tag :div, message.html_safe, class: "alert #{type}" %>
+    <%= content_tag :div, message.html_safe, class: "wrapper alert #{type}" %>
   <% end %>
 
-  <div class="well">
+  <div class="well wrapper">
     <%= yield %>
   </div>
 </body>
