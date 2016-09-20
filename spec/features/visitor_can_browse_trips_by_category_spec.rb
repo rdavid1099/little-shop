@@ -7,23 +7,19 @@ RSpec.feature 'Visitor can browse' do
 
     category_1.trips.create(title: 'Bermuda',
                             description: 'description',
-                            price: '199.99',
-                            image: 'image.jpg')
+                            price: '199.99')
 
     category_1.trips.create(title: 'Cabo',
                             description: 'description',
-                            price: '199.99',
-                            image: 'image.jpg')
+                            price: '199.99')
 
     category_2.trips.create(title: 'Vail',
                             description: 'description',
-                            price: '199.99',
-                            image: 'image.jpg')
+                            price: '199.99')
 
     category_2.trips.create(title: 'Whistler',
                             description: 'description',
-                            price: '199.99',
-                            image: 'image.jpg')
+                            price: '199.99')
 
     visit category_path(category_1.title)
 

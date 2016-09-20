@@ -12,7 +12,7 @@
       <% else %>
         <div class="item">
       <% end %>
-        <%= image_tag trip.image, id: 'carousel-pic' %>
+        <%= image_tag trip.trip_image.url, id: 'carousel-pic' %>
         <div class='carousel-caption'>
           <h3><%= link_to trip.title, trip_path(trip) %></h3>
           <p>Price: $<%= trip.price %></p>

@@ -1,8 +1,10 @@
 class Trip < ActiveRecord::Base
-  validates :title, presence: true
+  has_attached_file :trip_image, styles: { medium: '400x250', large: '900x350' }, default_url: '/images/medium/default-trip-img.jpg'
+  validates_attachment_content_type :trip_image, content_type: ['image/jpg', 'image/jpeg', 'image/png']
+  validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
-  validates :image, presence: true
+  validates_numericality_of :price, on: :create, greater_than_or_equal_to: 1
   validates :status, presence: true
 
   has_and_belongs_to_many :categories
@@ -29,7 +31,30 @@ class Trip < ActiveRecord::Base
     Trip.joins(:orders_trips).group(:quantity).order('count(*) DESC').limit(3).count
   end
 
+  def create_trip_with_category(params)
+    trip = Trip.new(trip_params(params))
+    if !params[:category_ids].nil? && trip.save
+      add_categories_trips(params[:category_ids], trip.id)
+      true
+    else
+      false
+    end
+  end
+
+  def add_categories_trips(category_ids, trip_id)
+    category_ids.each do |cat_id|
+      CategoriesTrip.create(category_id: cat_id, trip_id: trip_id)
+    end
+  end
+
   private
+
+  def trip_params(params)
+    { title: params[:title],
+      description: params[:description],
+      price: params[:price],
+      trip_image: params[:image] }
+  end
 
   def init
     self.status ||= 'active'

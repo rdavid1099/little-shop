@@ -1,8 +1,16 @@
 RSpec.describe Trip, type: :model do
-  it 'it can be created with the proper params' do
-    trip = Trip.new(title: 'title', description: 'description', price: 'price', image: 'image')
+  it 'can be created with the proper params' do
+    trip = Trip.new(title: 'title', description: 'description', price: 1)
 
     expect(trip).to be_valid
+  end
+
+  it 'status is created by default' do
+    trip = Trip.create(title: 'title',
+                       description: 'description',
+                       price: 1)
+
+    expect(trip.status).to eq('active')
   end
 
   context 'validations' do
@@ -11,6 +19,5 @@ RSpec.describe Trip, type: :model do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:price) }
-    it { is_expected.to validate_presence_of(:image) }
   end
 end

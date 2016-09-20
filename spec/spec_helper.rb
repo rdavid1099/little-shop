@@ -25,8 +25,7 @@ end
 def make_trip(location, status = 'active')
   Trip.create(title: location.to_s,
               description: 'description',
-              price: '199.99',
-              image: 'image.jpg',
+              price: 199.99,
               status: status)
 end
 

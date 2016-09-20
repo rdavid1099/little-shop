@@ -10,7 +10,8 @@
     <% @trips.each do |trip| %>
     <div class="item  col-xs-4 col-lg-4">
       <div class="thumbnail">
-        <a href='/trips/<%= trip.id %>'><%= image_tag trip.image %></a>
+<<<<<<< HEAD
+        <a href='/trips/<%= trip.id %>'><%= image_tag trip.trip_image.url %></a>
         <div class="caption">
           <h4 class="group inner list-group-item-heading">
             <%= link_to trip.title, trip_path(trip) %></h4>
