@@ -50,10 +50,10 @@ class Trip < ActiveRecord::Base
   private
 
   def trip_params(params)
-    {title: params[:title],
-     description: params[:description],
-     price: params[:price],
-     trip_image: params[:trip_image]}
+    { title: params[:title],
+      description: params[:description],
+      price: params[:price],
+      trip_image: params[:trip_image] }
   end
 
   def init

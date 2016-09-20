@@ -32,6 +32,10 @@ class Admin::TripsController < Admin::BaseController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description, :price, :trip_image, :category_ids => [])
+    params.require(:trip).permit(:title,
+                                 :description,
+                                 :price,
+                                 :trip_image, 
+                                 :category_ids => [])
   end
 end
