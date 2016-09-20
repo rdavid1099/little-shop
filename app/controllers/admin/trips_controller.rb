@@ -35,7 +35,7 @@ class Admin::TripsController < Admin::BaseController
     params.require(:trip).permit(:title,
                                  :description,
                                  :price,
-                                 :trip_image,
+                                 :image,
                                  category_ids: [])
   end
 end
