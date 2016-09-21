@@ -2,13 +2,7 @@
 <div class='row'>
   <div class='col-md-1'>
   </div>
-  <div class='col-md-8'>
-    <div class='dropdown'>
-      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Admin Options<span class='caret'></span></a>
-      <ul class='dropdown-menu'>
-        <li><%= link_to 'Edit Trip', edit_admin_trip_path(@trip) %></li>
-        <li><%= link_to 'Remove Trip', admin_trip_path(@trip), method: :delete %></li>
-      </ul>
-    </div>
+  <div class='col-md-8 padding-top'>
+    <%= render partial: 'admin_dropdown', locals: { trip: @trip } %>
   </div>
 </div>

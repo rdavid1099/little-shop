@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user can view past orders' do
+RSpec.feature 'User can view past orders' do
   scenario 'logged in user can view all past orders' do
     user = make_user('test')
     trip = make_trip('alabama')

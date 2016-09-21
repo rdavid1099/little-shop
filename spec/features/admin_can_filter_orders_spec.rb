@@ -1,10 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature 'admin can filter orders' do
+RSpec.feature 'Admin can filter orders' do
   scenario 'and can click on ordered, paid, cancelled, completed to sort trips' do
     admin = make_admin('admin')
+
     ApplicationController.any_instance.stubs(:logged_in?).returns(true)
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
+
     make_a_group_of_orders_with_certain_status('vail', 'ordered', 1)
     make_a_group_of_orders_with_certain_status('cabo', 'paid', 1)
     make_a_group_of_orders_with_certain_status('texas', 'cancelled', 1)
@@ -14,6 +16,7 @@ RSpec.feature 'admin can filter orders' do
     order_2 = OrdersTrip.find_by(trip_id: Trip.find_by(title: 'cabo_1').id).order
     order_3 = OrdersTrip.find_by(trip_id: Trip.find_by(title: 'texas_1').id).order
     order_4 = OrdersTrip.find_by(trip_id: Trip.find_by(title: 'seattle_1').id).order
+
     visit admin_dashboard_path
 
     expect(page).to have_link('Ordered', href: '/admin/dashboard?status=ordered')

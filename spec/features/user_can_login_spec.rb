@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user can login' do
+RSpec.feature 'User can login' do
   context 'with proper params' do
     scenario 'an existing user can login to account and see different navbar' do
       make_user('test')

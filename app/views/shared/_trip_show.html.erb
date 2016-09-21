@@ -14,7 +14,7 @@
     <div class='price-tag-reg padding-left padding-top padding_bottom'>
       $<%= '%.2f' % @trip.price %>
     </div>
-    <%= display_trip_status %>
+    <%= display_trip_status(@trip) %>
   </div>
   <div class='col-md-3'>
     <%= image_tag @trip.trip_image.url, class: 'trip-show-image' %>

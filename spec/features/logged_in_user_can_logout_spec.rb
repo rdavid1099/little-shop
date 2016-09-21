@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'logged in user can logout' do
+RSpec.feature 'Logged in user can logout' do
   scenario 'when user clicks logout they are logged out' do
     user = make_user('test')
     visit trips_path
