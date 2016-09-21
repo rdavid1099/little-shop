@@ -1,4 +1,6 @@
 class Admin::TripsController < Admin::BaseController
+  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+
   def new
     @trip = Trip.new
   end
@@ -14,19 +16,27 @@ class Admin::TripsController < Admin::BaseController
   end
 
   def index
+    @trips = Trip.all
   end
 
   def show
-    @trip = Trip.find(params[:id])
   end
 
   def edit
   end
 
   def update
+    if @trip.update(trip_params)
+      redirect_to admin_trip_path(@trip)
+    else
+      flash.now['alert-danger'] = 'Trip did not save'
+      render :edit
+    end
   end
 
-  def destory
+  def destroy
+    @trip.destroy
+    redirect_to admin_trips_path
   end
 
   private
@@ -37,5 +47,9 @@ class Admin::TripsController < Admin::BaseController
                                  :price,
                                  :image,
                                  category_ids: [])
+  end
+
+  def set_trip
+    @trip = Trip.find(params[:id])
   end
 end

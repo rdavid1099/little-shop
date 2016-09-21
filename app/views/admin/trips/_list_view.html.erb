@@ -10,20 +10,33 @@
     <% @trips.each do |trip| %>
     <div class="item  col-xs-4 col-lg-4">
       <div class="thumbnail">
-        <a href='/trips/<%= trip.id %>'><%= image_tag trip.trip_image.url %></a>
+        <a href='/admin/trips/<%= trip.id %>'><%= image_tag trip.trip_image.url %></a>
         <div class="caption">
+          <div class="row">
+            <div class="col-xs-12 col-md-7">
+            </div>
+            <div class="col-xs-12 col-md-5">
+              <div class='dropdown'>
+                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Admin Options<span class='caret'></span></a>
+                <ul class='dropdown-menu'>
+                  <li><%= link_to 'Edit Trip', edit_admin_trip_path(trip) %></li>
+                  <li><%= link_to 'Remove Trip', admin_trip_path(trip), method: :delete %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <h4 class="group inner list-group-item-heading">
-          <%= link_to trip.title, trip_path(trip) %></h4>
+          <%= link_to trip.title, admin_trip_path(trip) %></h4>
           <p class="group inner list-group-item-text">
           <%= trip.description %><br /><br />
           <%= trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %></p>
           <div class="row">
             <div class="col-xs-12 col-md-6">
               <p class="lead">
-              $ <%= '%.2f' % trip.price %></p>
+                $ <%= '%.2f' % trip.price %></p>
             </div>
             <div class="col-xs-12 col-md-6">
-              <%   if trip.status == 'active' %>
+              <% if trip.status == 'active' %>
                 <%=  button_to 'Add to Cart', cart_path(trip_id: trip.id), method: :post, class: 'btn btn-success' %>
               <% else %>
                 <%= 'Trip Expired' %>
