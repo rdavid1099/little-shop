@@ -12,6 +12,7 @@ class OrdersController < BaseController
   end
 
   def show
-    @order = current_user.orders.find(params[:id])
+    @order = current_user.orders.find_by(id: params[:id])
+    render file: 'public/404' if @order.nil?
   end
 end
