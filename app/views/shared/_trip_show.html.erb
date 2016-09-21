@@ -2,12 +2,18 @@
 <div class='row'>
   <div class='col-md-1'></div>
   <div class='col-md-6'>
-    <h5>Trip Description:</h5>
-    <p><%= @trip.description %></p>
-    <h5>Categories:</h5>
-    <%= @trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %>
-    <h5>Price:</h5>
-    $<%= '%.2f' % @trip.price %>
+    <h3>Trip Description:</h3>
+    <div class="padding-left padding-top">
+      <p><%= @trip.description %></p>
+    </div>
+    <h3>Categories:</h3>
+    <div class="padding-left padding-top">
+      <%= @trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %>
+    </div>
+    <h3>Price:</h3>
+    <div class='price-tag-reg padding-left padding-top padding_bottom'>
+      $<%= '%.2f' % @trip.price %>
+    </div>
     <%= display_trip_status %>
   </div>
   <div class='col-md-3'>

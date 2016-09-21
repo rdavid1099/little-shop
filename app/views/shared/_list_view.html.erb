@@ -8,23 +8,27 @@
   </div>
   <div id="products" class="row list-group">
     <% @trips.each do |trip| %>
-    <div class="item  col-xs-4 col-lg-4">
+    <div class="item col-xs-12 col-sm-12 col-md-6 col-lg-4">
       <div class="thumbnail">
         <a href='/trips/<%= trip.id %>'><%= image_tag trip.trip_image.url %></a>
         <div class="caption">
           <h4 class="group inner list-group-item-heading">
           <%= link_to trip.title, trip_path(trip) %></h4>
-          <p class="group inner list-group-item-text">
-          <%= trip.description %><br /><br />
-          <%= trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %></p>
+          <div class="group inner list-group-item-text">
+              <div class="padding-top">
+                <p>
+                  <%= trip.description %><br /><br />
+                </p>
+              <%= trip.categories.map { |cat| link_to cat.title, category_path(cat.title) }.join(', ').html_safe %></div>
+            </div>
           <div class="row">
             <div class="col-xs-12 col-md-6">
-              <p class="lead">
-              $ <%= '%.2f' % trip.price %></p>
+              <p class="price-tag padding-top">
+                $ <%= '%.2f' % trip.price %></p>
             </div>
             <div class="col-xs-12 col-md-6">
               <%   if trip.status == 'active' %>
-                <%=  button_to 'Add to Cart', cart_path(trip_id: trip.id), method: :post, class: 'btn btn-success' %>
+                <%=  button_to 'Add to Cart', cart_path(trip_id: trip.id), method: :post, class: 'btn btn-style-right btn-success' %>
               <% else %>
                 <%= 'Trip Expired' %>
               <% end %>
