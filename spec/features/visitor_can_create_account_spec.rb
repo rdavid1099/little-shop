@@ -4,6 +4,7 @@ RSpec.feature 'User can create account' do
   context 'with proper params' do
     scenario 'a visitor can enter valid information and create account' do
       visit login_path
+
       click_on 'Create Account'
       fill_in 'user_name', with: 'Test Tester'
       fill_in 'user_email', with: 'test@test.com'
@@ -28,6 +29,7 @@ RSpec.feature 'User can create account' do
   context 'wthout proper params' do
     scenario 'a visitor cannot create account without all params' do
       visit login_path
+      
       click_on 'Create Account'
       fill_in 'user_email', with: 'test@test.com'
       fill_in 'user_username', with: 'test'

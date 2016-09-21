@@ -18,13 +18,7 @@
               <%= link_to trip.title, admin_trip_path(trip) %></h4>
             </div>
             <div class="col-xs-12 col-md-5">
-              <div class='dropdown'>
-                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Admin Options<span class='caret'></span></a>
-                <ul class='dropdown-menu'>
-                  <li><%= link_to 'Edit Trip', edit_admin_trip_path(trip) %></li>
-                  <li><%= link_to 'Remove Trip', admin_trip_path(trip), method: :delete %></li>
-                </ul>
-              </div>
+              <%= render partial: 'admin_dropdown', locals: { trip: trip } %>
             </div>
           </div>
           <p class="group inner list-group-item-text">
@@ -36,11 +30,7 @@
                 $ <%= '%.2f' % trip.price %></p>
             </div>
             <div class="col-xs-12 col-md-6">
-              <% if trip.status == 'active' %>
-                <%=  button_to 'Add to Cart', cart_path(trip_id: trip.id), method: :post, class: 'btn btn-success' %>
-              <% else %>
-                <%= 'Trip Expired' %>
-              <% end %>
+              <%= display_trip_status(trip) %>
             </div>
           </div>
         </div>

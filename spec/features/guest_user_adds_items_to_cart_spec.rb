@@ -1,13 +1,15 @@
 require 'rails_helper'
 
-RSpec.feature 'guest user adds items to cart' do
+RSpec.feature 'Guest user adds items to cart' do
   scenario 'guest user adds items to cart and logins in to checkout' do
     trip_1 = make_trip('Bermuda')
     trip_2 = make_trip('Basement')
+
     visit trip_path(trip_1)
     click_on 'Add to Cart'
     visit trip_path(trip_2)
     click_on 'Add to Cart'
+
     click_on 'Login or Create Account to Checkout'
     click_on 'Create Account'
     fill_in 'user_name', with: 'Test Tester'

@@ -4,11 +4,9 @@ RSpec.feature 'Visitor can remove trips from cart' do
     visit trip_path(trip)
     click_on 'Add to Cart'
 
-    visit '/cart'
-
     click_on 'Remove'
     expect(page).to have_content('Shopping Cart')
-    
+
     within('div.cart-contents') do
       expect(page).to_not have_content(trip.title.to_s)
     end

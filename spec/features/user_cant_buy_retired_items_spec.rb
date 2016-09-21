@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user cant buy retired trips' do
+RSpec.feature 'User cant buy retired trips' do
   scenario 'user can view retired tripss but cant purchase them' do
     user = make_user('test')
     trip = make_trip('alabama', 'retired')

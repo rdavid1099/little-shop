@@ -1,14 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature 'logged in user can checkout' do
+RSpec.feature 'Logged in user can checkout' do
   scenario 'user is logged in and has item in cart' do
-    user = make_user('test')
     trip = make_trip('Bermuda')
-    visit trips_path
-    click_on 'Login'
-    fill_in 'sessions_username', with: 'test_test'
-    fill_in 'sessions_password', with: 'testing'
-    click_on 'Log In'
+    user = make_user('user')
+    ApplicationController.any_instance.stubs(:logged_in?).returns(true)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+
     visit trip_path(trip)
     click_on 'Add to Cart'
     click_on 'Checkout'
