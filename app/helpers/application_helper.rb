@@ -2,7 +2,7 @@ module ApplicationHelper
   def display_checkout
     if @cart.total_price.zero?
       'Your Cart is Empty'
-    elsif logged_in?
+    elsif logged_in? && current_user.user?
       link_to 'Checkout', orders_path, method: :post, class: 'btn btn-defaul btn-style col-md-offset-9'
     else
       link_to 'Login or Create Account to Checkout', login_path, class: 'btn btn-defaul btn-style col-md-offset-8'
