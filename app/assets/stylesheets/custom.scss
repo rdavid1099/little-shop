@@ -1,3 +1,6 @@
+.item.list-group-item:after {
+  clear: both;
+}
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -42,9 +45,6 @@
 
 .item.list-group-item img {
   float: left;
-}
-.item.list-group-item:after {
-  clear: both;
 }
 .list-group-item-text {
   margin: 0 0 11px;
@@ -231,4 +231,9 @@ h6, h5, h4, h3, h2, h1, p, a {
 
 .align_right {
   text-align: center;
+}
+
+body {
+  background-color: #EAEAEA
+;
 }

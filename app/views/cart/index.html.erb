@@ -14,7 +14,7 @@
                 </p>
               </td>
               <td class = 'col3'>
-                <%= button_to 'Edit Quantity', cart_edit_path(trip_id: trip.id), method: :get, class: 'btn btn-default btn-style-sm' %>
+                <%= link_to 'Edit Quantity', cart_edit_path(trip_id: trip.id), method: :get, class: 'btn btn-default btn-style-sm' %>
               </td>
               <td class = 'col4'>
                 <%= button_to 'Remove', cart_path(trip_id: trip.id), method: :delete, class: 'btn btn-default btn-style-sm'%>
