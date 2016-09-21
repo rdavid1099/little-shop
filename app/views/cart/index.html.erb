@@ -27,15 +27,14 @@
         </div>
     <% end %>
     <div class="top_border">
-
-  <% unless @cart.total_price.zero? %>
-</div>
-    <h3 class = 'col-md-offset-9'>Total:</h3>
-    <div class = 'price-tag-reg padding-top padding_bottom col-md-offset-9'>
-      $<%= '%.2f' % @cart.total_price %>
+      <% unless @cart.total_price.zero? %>
+        <h3 class = 'col-md-offset-9'>Total:</h3>
+        <div class = 'price-tag-reg padding-top padding_bottom col-md-offset-9'>
+          $<%= '%.2f' % @cart.total_price %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
-<div class='checkout'>
-  <%= display_checkout %>
+  <div class='checkout'>
+    <%= display_checkout %>
+  </div>
 </div>
