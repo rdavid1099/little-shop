@@ -1,17 +1,2 @@
 <h1>Create New Trip</h1>
-<%= form_for([:admin, @trip]) do |f| %>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %><br><br>
-  <%= f.label :description %><br>
-  <%= f.text_field :description %><br><br>
-  <%= f.label :price %><br>
-  <%= f.number_field :price, min: 1 %><br><br>
-  <%= f.label :category, "Select Categories" %><br>
-  <% @categories.each do |category| %>
-    <%= check_box_tag "trip[category_ids][]", category.id, @trip.categories.ids.include?(category.id) %> <%= category.title %><br>
-  <% end %>
-  <%= f.label :image, "Attach an Image" %><br>
-  <%= f.file_field :image %><br><br>
-
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'form' %>

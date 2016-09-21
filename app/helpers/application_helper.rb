@@ -1,6 +1,8 @@
 module ApplicationHelper
   def display_checkout
-    if logged_in?
+    if @cart.total_price.zero?
+      'Your Cart is Empty'
+    elsif logged_in?
       link_to 'Checkout', orders_path, method: :post
     else
       link_to 'Login or Create Account to Checkout', login_path
