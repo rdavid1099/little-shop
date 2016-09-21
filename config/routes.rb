@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:show, :update]
+
+    resources :categories, except: [:show]
+
     resources :trips
     get '/dashboard', to: 'users#dashboard'
     get '/settings', to: 'users#edit'

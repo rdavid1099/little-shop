@@ -16,8 +16,10 @@ RSpec.feature 'guest user adds items to cart' do
     fill_in 'user_password', with: 'password'
     click_on 'Create Account'
 
-    expect(page).to have_content('1 - Bermuda - $199.99')
-    expect(page).to have_content('1 - Basement - $199.99')
+    expect(page).to have_content('1 Bermuda')
+    expect(page).to have_content('$199.99')
+    expect(page).to have_content('1 Basement')
+    expect(page).to have_content('$199.99')
     expect(page).to have_content('Logged in as test')
     expect(page).to have_content('Checkout')
   end
