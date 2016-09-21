@@ -9,7 +9,8 @@ class CartController < ApplicationController
   end
 
   def edit
-    @trip = Trip.find(params[:trip_id])
+    @trip = Trip.find_by(id: params[:trip_id])
+    render file: 'public/404' if @trip.nil?
   end
 
   def update
