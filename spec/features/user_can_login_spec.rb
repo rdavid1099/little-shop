@@ -11,7 +11,7 @@ RSpec.feature 'user can login' do
       click_on 'Log In'
 
       expect(current_path).to eq(dashboard_path)
-      within('div.navbar') do
+      within('div.wrapper_top_nav') do
         expect(page).to have_content('Logged in as test')
         expect(page).to_not have_content('Login')
         expect(page).to have_content('Logout')

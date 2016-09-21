@@ -12,7 +12,7 @@ RSpec.feature 'User can create account' do
       click_on 'Create Account'
 
       expect(current_path).to eq(dashboard_path)
-      within('div.navbar') do
+      within('div.wrapper_top_nav') do
         expect(page).to have_content('Logged in as test')
         expect(page).to_not have_content('Login')
         expect(page).to have_content('Logout')
@@ -35,7 +35,7 @@ RSpec.feature 'User can create account' do
       click_on 'Create Account'
 
       expect(current_path).to eq(users_path)
-      within('div.navbar') do
+      within('div.wrapper_top_nav') do
         expect(page).to have_content('Login')
         expect(page).to have_content('Sign Up')
       end
