@@ -7,13 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: 'layouts/navbar' %>
+  <nav>
+    <%= render partial: 'layouts/navbar' %>
+  </nav>
+
   <% flash.each do |type, message| %>
-    <%= content_tag :div, message.html_safe, class: "wrapper alert #{type}" %>
+    <%= content_tag :div, message.html_safe, class: "wrapper_top_nav alert #{type}" %>
   <% end %>
 
   <div class="well wrapper">
     <%= yield %>
   </div>
+
+  <nav>
+    <%= render partial: 'layouts/bottom_nav' %>
+  </nav>
+
 </body>
 </html>
