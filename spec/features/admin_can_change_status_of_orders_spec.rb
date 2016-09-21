@@ -1,19 +1,24 @@
 require 'rails_helper'
 
-RSpec.feature 'admin can change status of orders' do
+RSpec.feature 'Admin can change status of orders' do
   scenario 'admin changes the order status on dashboard' do
     admin = make_admin('admin')
+
     ApplicationController.any_instance.stubs(:logged_in?).returns(true)
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
+
     make_a_group_of_orders_with_certain_status('vail', 'ordered', 1)
     make_a_group_of_orders_with_certain_status('cabo', 'paid', 1)
     make_a_group_of_orders_with_certain_status('texas', 'cancelled', 1)
     make_a_group_of_orders_with_certain_status('seattle', 'paid', 1)
+
     visit admin_dashboard_path
+
     order_1 = OrdersTrip.find_by(trip_id: Trip.find_by(title: 'vail_1').id).order
     order_2 = OrdersTrip.find_by(trip_id: Trip.find_by(title: 'cabo_1').id).order
     order_3 = OrdersTrip.find_by(trip_id: Trip.find_by(title: 'texas_1').id).order
     order_4 = OrdersTrip.find_by(trip_id: Trip.find_by(title: 'seattle_1').id).order
+
     expect(page).to have_content("#{order_1.id} - Status: Ordered")
     expect(page).to have_content("#{order_2.id} - Status: Paid")
     expect(page).to have_content("#{order_3.id} - Status: Cancelled")
@@ -39,6 +44,5 @@ RSpec.feature 'admin can change status of orders' do
       end
     end
     expect(page).to have_content("#{order_1.id} - Status: Paid")
-
   end
 end

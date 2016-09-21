@@ -4,8 +4,6 @@ RSpec.feature 'Visitor who has items in cart' do
     visit trip_path(trip)
     click_on 'Add to Cart'
 
-    visit '/cart'
-
     expect(page).to have_content('1')
     expect(page).to have_content('Bermuda')
     expect(page).to have_content('$199.99')
@@ -25,8 +23,6 @@ RSpec.feature 'Visitor who has items in cart' do
     trip = make_trip('Bermuda')
     visit trip_path(trip)
     click_on 'Add to Cart'
-
-    visit '/cart'
 
     click_on 'Edit Quantity'
     fill_in 'Quantity', with: '2'

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user can view single past order' do
+RSpec.feature 'User can view single past order' do
   context 'signed in user can see past order of one quantity' do
     scenario 'signed in user can see a single order' do
       user = make_user('test')
@@ -12,7 +12,7 @@ RSpec.feature 'user can view single past order' do
       visit orders_path
       click_on order.id.to_s
 
-      expect(page).to have_content('1')
+      expect(page).to have_content('Quantity: 1')
       expect(page).to have_content('alabama')
       expect(page).to have_content('$199.99')
       expect(page).to have_link(trip.title, href: trip_path(trip))
@@ -33,10 +33,11 @@ RSpec.feature 'user can view single past order' do
       order2 = Order.last
       ApplicationController.any_instance.stubs(:logged_in?).returns(true)
       ApplicationController.any_instance.stubs(:current_user).returns(user)
+
       visit orders_path
       click_on order1.id.to_s
 
-      expect(page).to have_content('2')
+      expect(page).to have_content('Quantity: 2')
       expect(page).to have_content('alabama')
       expect(page).to have_content('$399.98')
       expect(page).to have_link(trip.title, href: trip_path(trip))
@@ -47,7 +48,7 @@ RSpec.feature 'user can view single past order' do
 
       visit orders_path
       click_on order2.id.to_s
-      expect(page).to have_content('1')
+      expect(page).to have_content('Quantity: 1')
       expect(page).to have_content('alabama')
       expect(page).to have_content('$199.99')
       expect(page).to have_link(trip.title, href: trip_path(trip))
