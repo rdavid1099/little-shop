@@ -1,6 +1,4 @@
-.item.list-group-item:after {
-  clear: both;
-}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -81,6 +79,7 @@ textarea {
   margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .btn-style-right {
   font-family: ProximaNovaBold;
   font-size: 18px;
@@ -235,4 +234,8 @@ h6, h5, h4, h3, h2, h1, p, a {
 
 body {
   background-color: #EAEAEA;
+}
+
+.item.list-group-item:after {
+  clear: both;
 }
